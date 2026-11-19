@@ -419,7 +419,9 @@
     .hero-title span.highlight {
       background: linear-gradient(135deg, #181c20 0%, #c5a059 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
+      color: transparent;
       display: inline-block;
     }
 
@@ -1775,8 +1777,7 @@
 
   <!-- ===================================================
        嚴苛工藝流程 (Craft & Process)
-       =================================================== */
-  =================================================== -->
+       =================================================== -->
   <section class="process-section" id="process">
     <div class="container">
       <div class="section-header">
@@ -2242,6 +2243,17 @@
       document.getElementById('custPhone').value = '';
       document.getElementById('custAddress').value = '';
       document.getElementById('custNotes').value = '';
+    }
+
+    // 購物車按鈕點擊滾動至預約訂購區
+    const cartBtn = document.getElementById('cartBtn');
+    if (cartBtn) {
+      cartBtn.addEventListener('click', () => {
+        const orderSec = document.getElementById('order');
+        if (orderSec) {
+          orderSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     }
 
     // 行動版漢堡選單切換
